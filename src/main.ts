@@ -1,4 +1,4 @@
-import { initFederation } from '@angular-architects/module-federation';
+import { initFederation } from '@angular-architects/native-federation';
 
 initFederation('/assets/mf.manifest.json')
   .catch(err => console.error(err))

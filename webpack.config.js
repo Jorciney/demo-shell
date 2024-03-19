@@ -1,12 +1,13 @@
-const { withModuleFederationPlugin, share } = require('@angular-architects/module-federation/webpack');
+const {
+  withNativeFederation,
+  shareAll,
+} = require('@angular-architects/native-federation/config');
 
-module.exports = withModuleFederationPlugin({
-
-  shared: share({
-    '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-  }),
-});
+module.exports = withNativeFederation({
+  shared: {...shareAll({
+    singleton: true,
+    strictVersion: true,
+    requiredVersion: 'auto'
+  })}
+})
 module.exports.mode = 'production'

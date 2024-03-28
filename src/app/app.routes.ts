@@ -6,7 +6,19 @@ export const appRoutes: Route[] = [
     path: '',
     loadComponent: () => loadRemoteModule({
       type: 'manifest', // Angular >= 13
-      remoteName: 'demo-mfe',
+      remoteName: 'treeshaker-monorepo',
+      exposedModule: './Component'
+    })
+      .then(esm => {
+        console.log('esm:', esm);
+        return esm['AppComponent'];
+      })
+  },
+  {
+    path: 'dummy',
+    loadComponent: () => loadRemoteModule({
+      type: 'manifest', // Angular >= 13
+      remoteName: 'dummy',
       exposedModule: './Component'
     })
       .then(esm => {

@@ -1,3 +1,4 @@
 {
-	"demo-mfe": "http://localhost:4201/remoteEntry.js"
+	"dummy": "http://localhost:4202/remoteEntry.js",
+	"treeshaker-monorepo": "http://localhost:4201/remoteEntry.js"
 }

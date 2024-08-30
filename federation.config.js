@@ -10,6 +10,7 @@ module.exports = withNativeFederation({
     '@angular/platform-browser': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
     'rxjs': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
     'tslib': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+    '@ngx-translate/core': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
   }),
 
 });

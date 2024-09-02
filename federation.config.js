@@ -1,16 +1,26 @@
-const { withNativeFederation, share } = require('@angular-architects/native-federation/config');
+const { withNativeFederation, share, shareAll } = require('@angular-architects/native-federation/config');
 
 module.exports = withNativeFederation({
 
-  shared: share({
-    '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@angular/platform-browser': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    'rxjs': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    'tslib': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-    '@ngx-translate/core': {singleton: true, strictVersion: true, requiredVersion: 'auto'},
-  }),
+  shared: {
+    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
 
+    ...share([
+              '@angular/common/locales/en',
+              '@angular/common/locales/nl-BE',
+              '@angular/common/locales/fr-BE',
+              '@angular/common/locales/en-BE',
+              'rxjs',
+            ].reduce(
+      (acc, name) => ({
+        ...acc,
+        [name]: { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: false },
+      }),
+        {},
+      ),
+    ),
+  },
+  skip: [
+    // Add further packages you don't need at runtime
+  ],
 });

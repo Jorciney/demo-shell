@@ -5,12 +5,12 @@ export const appRoutes: Route[] = [
   {
     path: '',
     loadComponent: () => loadRemoteModule({
-      remoteName: 'demo-mfe',
-      exposedModule: './Component'
+      remoteName: 'sales-mfe',
+      exposedModule: 'OneConfigurator'
     })
       .then(esm => {
         console.log('esm:', esm);
-        return esm.AppComponent;
+        return esm.OneConfiguratorComponent;
       })
   }
 ];

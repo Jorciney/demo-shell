@@ -1,3 +1,4 @@
 {
-	"demo-mfe": "http://localhost:4201/remoteEntry.json"
+	"demo-mfe": "http://localhost:4201/remoteEntry.json",
+	"sales-mfe": "http://localhost:4205/remoteEntry.json"
 }

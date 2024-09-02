@@ -1,0 +1,20 @@
+diff --git a/node_modules/@softarc/native-federation/src/lib/utils/package-info.js b/node_modules/@softarc/native-federation/src/lib/utils/package-info.js
+index 51680b0..09cd6ee 100644
+--- a/node_modules/@softarc/native-federation/src/lib/utils/package-info.js
++++ b/node_modules/@softarc/native-federation/src/lib/utils/package-info.js
+@@ -259,6 +259,15 @@ function _getPackageInfo(packageName, directory) {
+             esm,
+         };
+     }
++    cand = secondaryPgkPath + '.mjs';
++    if (fs.existsSync(cand)) {
++        return {
++            entryPoint: cand,
++            packageName,
++            version,
++            esm,
++        };
++    }
+     // TODO: Add logger
+     logger_1.logger.warn('No entry point found for ' + packageName);
+     logger_1.logger.warn("If you don't need this package, skip it in your federation.config.js or consider moving it into depDependencies in your package.json");
